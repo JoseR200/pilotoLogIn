@@ -7,7 +7,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 })
 export class SharedService<T> {
   // Resource Endpoint
-  basePath = 'http://localhost:3900/api/';
+  basePath = 'http://localhost:3900/api/user/';
 
   // Common options
   httpOptions = {
@@ -34,7 +34,7 @@ export class SharedService<T> {
 
   create(item: any): Observable<T> {
     return this.http.post<T>(
-      this.basePath + '/login',
+      this.basePath,
       JSON.stringify(item),
       this.httpOptions)
       .pipe(
@@ -43,7 +43,7 @@ export class SharedService<T> {
   }
 
   get(): Observable<T> {
-    return this.http.get<T>(this.basePath+ '/profile', this.httpOptions)
+    return this.http.get<T>(this.basePath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

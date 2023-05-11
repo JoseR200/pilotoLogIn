@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {UserService} from "../loginService/user.service";
-import {User} from "../models/user";
+import {LoginService} from "../../services/login.service";
+import {User} from "../../models/user";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,13 @@ import {Router} from "@angular/router";
 export class LoginComponent {
   user: any;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: LoginService, private router: Router, private auth: AuthService) {
     this.user = {} as User;
   }
 
   onSubmit() {
     this.userService.create(this.user).subscribe((response: any) => {
-      localStorage.setItem('token', response.token);
+      this.auth.login(response.token);
       this.router.navigate(['/profile']);
     }, error => {
       console.log(error);

@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './security/pages/login/login.component';
 import {FormsModule} from "@angular/forms";
-import {UserService} from "./components/loginService/user.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { ProfileComponent } from './components/profile/profile.component';
+import {LoginService} from "./security/services/login.service";
+import {HttpClientModule} from "@angular/common/http";
+import { ProfileComponent } from './profile/pages/profileDetails/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
         FormsModule,
         HttpClientModule
     ],
-  providers: [UserService],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
