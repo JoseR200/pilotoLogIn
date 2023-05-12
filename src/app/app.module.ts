@@ -8,12 +8,14 @@ import {FormsModule} from "@angular/forms";
 import {LoginService} from "./security/services/login.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProfileComponent } from './profile/pages/profileDetails/profile.component';
+import { RegisterComponent } from './security/pages/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,

@@ -20,8 +20,10 @@ export class LoginComponent {
     this.userService.create(this.user).subscribe((response: any) => {
       this.auth.login(response.token);
       this.router.navigate(['/profile']);
-    }, error => {
-      console.log(error);
     });
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 }
