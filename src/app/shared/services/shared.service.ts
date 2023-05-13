@@ -12,8 +12,7 @@ export class SharedService<T> {
   // Common options
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `${localStorage.getItem('token')}`
+      'Content-Type': 'application/json'
     })
   };
 

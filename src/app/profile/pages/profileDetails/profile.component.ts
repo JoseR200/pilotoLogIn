@@ -11,6 +11,7 @@ import {AuthService} from "../../../security/services/auth.service";
 })
 export class ProfileComponent implements OnInit{
   user:User;
+  url: string = "";
 
   constructor(private userService: UserService, private router: Router, private auth: AuthService) {
     this.user = {} as User;
@@ -19,12 +20,12 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
     this.userService.get().subscribe((response: any) => {
       this.user=response.user;
-      console.log(this.user)
+      this.url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/';
     });
   }
 
   logout() {
     this.auth.logout();
-    this.router.navigate(['/login']);
+    window.location.assign(this.url);
   }
 }
