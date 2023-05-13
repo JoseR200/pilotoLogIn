@@ -7,7 +7,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 })
 export class SharedService<T> {
   // Resource Endpoint
-  basePath = 'http://localhost:3900/api/user/';
+  basePath = 'https://socialmediarestapi-production-c861.up.railway.app/api/user/';
 
   // Common options
   httpOptions = {
